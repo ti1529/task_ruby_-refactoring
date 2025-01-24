@@ -1,43 +1,32 @@
 def main
 
   members = ["Arima", "Shimizu", "Iida"]
-  puts "初期メンバーは次の#{members.length}人です"
-  members.each do | member |
-    puts "・" + member
+
+  puts "この中から選ばれます"
+  index = 0
+  while index < members.length
+    puts members[index]
+    index += 1
   end
 
-  puts "\nメンバーを追加する場合は名前を入力してください。"
-  puts "追加しない場合は0を入力してください。"
-
-  while true
-    new_member = gets.chomp
-    if new_member == "0"
-      break
-    else
-      members.push(new_member)
-    end
-  end
-
-  puts "\nこの#{members.length}人から選ばれます"
-  i = 0
-  while i < members.length
-    puts "・" + members[i]
-    i += 1
-  end
-
-  puts "\nEnterを押してください"
+  puts "Enterを押してください"
   gets
-  start_time = Time.now
 
-  puts "もう一度Enterを押してください"
+  start_time = Time.now
+  # puts start_time
+
+  puts "Enterを押してください"
   gets
   end_time = Time.now
+  # puts end_time
 
   time_difference = msec_difference(end_time, start_time)
+  # puts time_difference
 
-  index = time_difference % members.length
+  index = time_difference % 3
+  # puts index.to_i
 
-  puts "明日の朝礼当番は「#{members[index.to_i]}さん」です"
+  puts "明日の朝礼当番は#{members[index.to_i]}さんです"
 end
 
 def msec_difference(a, b)
