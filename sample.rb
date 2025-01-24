@@ -1,4 +1,3 @@
-
 def post_input
   puts "1から5で評価を入力してください"
   point = gets.to_i
